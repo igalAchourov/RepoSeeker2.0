@@ -1,0 +1,9 @@
+Hi,
+My name is Igal Achourov and this is my repository search project.
+Client created using angular 8, and .Net core 3 for server.
+Run `ng serve` for a dev server inside `RepositorySeeker-SPA`. Navigate to `http://localhost:4200/`.
+ The app will automatically reload if you change any of the source files. 
+and for the server please enter `RepositorySeeker.API` enter the command `dotnet run`. 
+
+
+enjoy :)

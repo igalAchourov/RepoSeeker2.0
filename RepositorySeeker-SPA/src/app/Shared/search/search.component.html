@@ -1,0 +1,64 @@
+
+ <div class="row text-center mt-4">
+  <div class="col-lg-12">
+    <h1>Repository seeker</h1>
+
+    <input
+      type="text"
+      [(ngModel)]="userInput"
+      (keyup)="search()"
+      class="customInput"
+      placeholder="Type here repository name"
+    />
+  </div>
+</div>
+
+
+<div class="row mt-4">
+  <div *ngFor="let repo of repositories" class="col-lg-2 col-md-3 col-sm-6">
+    <div class="list-inline text-center ml-5">
+      <div class="card list-inline-item" style="width: 100%;">
+        <img
+          class="card-img-top img-thumbnail"
+          src="{{ repo?.avatarUrl }}"
+          alt="No Img to display "
+        />
+        <div class="card-body">
+          <strong>{{ repo?.repoName }}</strong>
+        </div>
+        <div class="card-footer">
+          <div class="btn-group d-flex">
+            <button class="btn btn-success" (click)="addRepoToFavorite(repo.repoId, repo.repoName,repo.avatarUrl)">
+              To Favorite <i class="far fa-bookmark ml-1"></i>
+            </button>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div class="text-center">
+<div class="d-flex justify-content-center mt-5" style="margin-left: 600px;" >
+      <div *ngIf="repositories">
+        <pagination
+          [boundaryLinks]="true"
+          [totalItems]="pagination.totalItems"
+          [maxSize]="5"
+          (pageChanged)="pageChanged($event)"
+          [itemsPerPage]="pagination.itemsPerPage"
+          [(ngModel)]="pagination.currentPage"
+          previousText="&lsaquo;"
+          nextText="&rsaquo;"
+          firstText="&laquo;"
+          lastText="&raquo;"
+        >
+        </pagination>
+      </div>
+    </div>
+</div>
+
+
+</div> 
